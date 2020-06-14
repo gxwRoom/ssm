@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="ssm@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="ssm">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="bmd_hostipal"/>
+    <schema id="4" parent="1" name="db_blog3"/>
+    <schema id="5" parent="1" name="gxwroom_dubbo_hostipal"/>
+    <schema id="6" parent="1" name="gxwroom_shop"/>
+    <schema id="7" parent="1" name="gxw_hostipal"/>
+    <schema id="8" parent="1" name="hospital"/>
+    <schema id="9" parent="1" name="information_schema"/>
+    <schema id="10" parent="1" name="jedis"/>
+    <schema id="11" parent="1" name="library"/>
+    <schema id="12" parent="1" name="mybatis"/>
+    <schema id="13" parent="1" name="mybatisdb"/>
+    <schema id="14" parent="1" name="mysql"/>
+    <schema id="15" parent="1" name="newbee_mall_schema"/>
+    <schema id="16" parent="1" name="performance_schema"/>
+    <schema id="17" parent="1" name="school_guahao"/>
+    <schema id="18" parent="1" name="school_hospital"/>
+    <schema id="19" parent="1" name="shop"/>
+    <schema id="20" parent="1" name="springboot"/>
+    <schema id="21" parent="1" name="springbootdb"/>
+    <schema id="22" parent="1" name="ssm_crud"/>
+    <schema id="23" parent="1" name="student"/>
+    <schema id="24" parent="1" name="sys"/>
+    <schema id="25" parent="1" name="system"/>
+    <schema id="26" parent="1" name="tmall_ssm"/>
+    <schema id="27" parent="1" name="vue_demo"/>
+    <table id="28" parent="2" name="game">
+      <Comment>游戏信息表</Comment>
+    </table>
+    <table id="29" parent="2" name="people">
+      <Comment>人员信息表</Comment>
+    </table>
+    <table id="30" parent="2" name="student"/>
+    <table id="31" parent="2" name="teacher"/>
+    <table id="32" parent="2" name="user">
+      <Comment>用户信息表</Comment>
+    </table>
+    <column id="33" parent="28" name="id">
+      <Position>1</Position>
+      <Comment>游戏编号</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="34" parent="28" name="name">
+      <Position>2</Position>
+      <Comment>游戏名称</Comment>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="35" parent="28" name="role">
+      <Position>3</Position>
+      <Comment>角色</Comment>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="36" parent="28" name="brithday">
+      <Position>4</Position>
+      <Comment>生日</Comment>
+      <DataType>date|0</DataType>
+    </column>
+    <key id="37" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="38" parent="29" name="id">
+      <Position>1</Position>
+      <Comment>编号</Comment>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="39" parent="29" name="name">
+      <Position>2</Position>
+      <Comment>姓名</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="29" name="age">
+      <Position>3</Position>
+      <Comment>年龄</Comment>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="41" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="30" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="44" parent="30" name="age">
+      <Position>3</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="45" parent="30" name="tid">
+      <Position>4</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <index id="46" parent="30" name="tid">
+      <ColNames>tid</ColNames>
+    </index>
+    <key id="47" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="48" parent="30" name="student_ibfk_1">
+      <ColNames>tid</ColNames>
+      <RefSchemaName>ssm</RefSchemaName>
+      <RefTableName>teacher</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="49" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="31" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <key id="51" parent="31" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="52" parent="32" name="id">
+      <Position>1</Position>
+      <Comment>编号</Comment>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="53" parent="32" name="name">
+      <Position>2</Position>
+      <Comment>姓名</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="32" name="age">
+      <Position>3</Position>
+      <Comment>年龄</Comment>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="55" parent="32" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxw.mapper.UserMapper">
+
+	<!--查询所有用户-->
+	<select id="selectUser" resultType="User">
+		select * from user
+	</select>
+
+	<!--&lt;!&ndash;建立对应关系 一对多关系&ndash;&gt;-->
+	<!--<resultMap id="userMap" type="User">-->
+		<!--<id column="id" property="id"/>-->
+		<!--<result column="username" property="username"/>-->
+		<!--<result column="sex" property="sex"/>-->
+		<!--<result column="birthday" property="birthday"/>-->
+		<!--<result column="address" property="address"/>-->
+		<!--&lt;!&ndash;从表指向主表，建立关联关系，实现一对多关系 collection:用于建立一对多关系；ofType：用于指定集合元素的数据类型&ndash;&gt;-->
+		<!--<collection property="accounts" ofType="Account">-->
+			<!--<id column="ID" property="ID"/>-->
+			<!--<result column="UID" property="UID"/>-->
+			<!--<result column="MONEY" property="MONEY"/>-->
+		<!--</collection>-->
+	<!--</resultMap>-->
+
+	<!--&lt;!&ndash;实现一对多关联查询，查询用户信息，同时查询出用户的账号信息&ndash;&gt;-->
+	<!--<select id="findUserAndAccount" resultMap="userMap">-->
+		<!--select u.*,a.ID,a.UID,a.MONEY from user u left join account a on u.id=a.UID;-->
+	<!--</select>-->
+
+	<!--查询所有用户 别名-->
+	<!--<select id="findUser" resultType="User">-->
+	<!--select * from user-->
+	<!--</select>-->
+
+	<!--根据id查询用户对象-->
+	<select id="findUserById" resultType="User" parameterType="int">
+		select * from user where id=#{id}
+	</select>
+
+	<!--分页查询用户-->
+	<select id="findUserPage" resultType="User" parameterType="map">
+		select * from user limit #{pageStart},#{pageSize}
+	</select>
+
+	<!--根据名称模糊查询用户-->
+	<select id="findUserByName" resultType="User" parameterType="java.lang.String">
+		select * from user where name like #{name}
+	</select>
+
+	<!--查询总数-->
+	<select id="findTotal" resultType="java.lang.Integer">
+		select count(*) from user
+	</select>
+
+	<!--添加用户-->
+	<insert id="insertUser" parameterType="User">
+		insert into user(name,age) values(#{name},#{age})
+	</insert>
+
+	<!--更新用户-->
+	<update id="updateUser" parameterType="User" >
+		update user set name=#{name},age=#{age} where id=#{id}
+	</update>
+
+	<!--根据id删除用户-->
+	<delete id="deleteUserById" parameterType="java.lang.Integer">
+		delete from user where id=#{id}
+	</delete>
+</mapper>
